@@ -10,13 +10,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".InitialUserManagement.ConfirmReset"
+            android:exported="true" />
+        <activity
+            android:name=".InitialUserManagement.VerifyPin"
+            android:exported="true" />
+        <activity
+            android:name=".InitialUserManagement.ResetPassword"
+            android:exported="true" />
+        <activity
+            android:name=".InitialUserManagement.PersonalInfo"
+            android:exported="true" />
+        <activity
             android:name=".Profile"
             android:exported="true" />
         <activity
             android:name=".UpdateRequest"
             android:exported="true" />
         <activity
-            android:name=".VerifyEmail"
+            android:name=".InitialUserManagement.VerifyEmail"
             android:exported="true" />
         <activity
             android:name=".UpdatePorfile"
@@ -25,15 +37,16 @@
             android:name=".RequestMedication"
             android:exported="true" />
         <activity
-            android:name=".Loginactiviyu"
+            android:name=".InitialUserManagement.Loginactiviyu"
             android:exported="true" />
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:exported="true"
-            android:label="@string/title_activity_login" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true" />
+        <activity android:name=".InitialUserManagement.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

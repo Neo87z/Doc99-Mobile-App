@@ -4,18 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VerifyEmail">
+    tools:context=".InitialUserManagement.VerifyEmail">
+
     <TextView
         android:id="@+id/textView"
-        android:layout_width="177dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="24dp"
-        android:text="Verify Email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:text="Before You Proceed, PLease Verify You Email!"
         android:textColor="#000000"
-        android:textSize="32dp"
-        android:textStyle="bold|italic"
+        android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.068"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -32,52 +31,54 @@
 
     <EditText
         android:id="@+id/editTextTextPersonName"
-        android:layout_width="379dp"
-        android:layout_height="56dp"
+        android:layout_width="369dp"
+        android:layout_height="53dp"
         android:layout_marginTop="24dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Enter PIN"
+        android:hint="Enter PIN"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <Button
         android:id="@+id/button"
 
-        android:layout_width="379dp"
-        android:layout_height="56dp"
+        android:layout_width="365dp"
+        android:layout_height="51dp"
         android:layout_marginTop="12dp"
         android:text="NexT"
         android:textColor="#FFFFFF"
         android:theme="@style/Theme.AppCompat"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="195dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="16dp"
-        android:text="Please Enter the 6 Digit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Please Enter The 6-Digit Verification Code "
         android:textColor="#000000"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.449"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="246dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="8dp"
-        android:text="Verifaction Code To Proceed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="To Procced!"
         android:textColor="#000000"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -87,8 +88,21 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
-        android:text="Didn't Recieve PIN ?Resend PIN"
+        android:text="Didn't Recieve PIN ?"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="168dp"
+        android:text="Resend PIN"
+        android:textColor="#e60000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
