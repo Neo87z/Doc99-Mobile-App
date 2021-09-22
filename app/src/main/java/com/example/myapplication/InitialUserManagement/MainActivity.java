@@ -1,5 +1,6 @@
 package com.example.myapplication.InitialUserManagement;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,6 +13,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -59,12 +65,41 @@ public class MainActivity extends AppCompatActivity {
 
     public void StartLoginProcess(){
         Password=findViewById(R.id.editTextTextPersonName14);
-        EmailPhone=findViewById(R.id.editTextTextPersonName13);
+
         if(TextUtils.isEmpty(EmailPhone.getText().toString())){
-            Toast.makeText(this,"Please Input Email Or Phone Number", Toast.LENGTH_SHORT).show();
+            EmailPhone.setError("Please Input Email");
         }else if (TextUtils.isEmpty(Password.getText().toString())){
-            Toast.makeText(this,"Please Input Password", Toast.LENGTH_SHORT).show();
+            Password.setError("Please Input Email");
+        }else{
+            CheckLoginDetails();
         }
+    }
+
+    public void CheckLoginDetails(){
+
+        final DatabaseReference readRef= FirebaseDatabase.getInstance().getReference().child("User").child(EmailPhone.getText().toString());
+        readRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.hasChildren()){
+                    String Pass=dataSnapshot.child("password").getValue().toString();
+                    if(Pass.equals(Password.getText().toString())){
+                        Toast.makeText(MainActivity.this,"Pass", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(MainActivity.this,"Invalid NIC Or Password", Toast.LENGTH_SHORT).show();
+                    }
+
+                }else{
+                    Toast.makeText(MainActivity.this,"Invalid NIC Or Password", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     public void ForGotPassword(){
