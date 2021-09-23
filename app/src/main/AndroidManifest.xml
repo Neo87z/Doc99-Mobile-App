@@ -10,9 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".EditMediaction"
+            android:exported="true" />
+        <activity
+            android:name=".ReviewMedication"
+            android:exported="true" />
+        <activity
             android:name=".MainHome"
             android:exported="true" />
-
         <activity
             android:name=".InitialUserManagement.ConfirmReset"
             android:exported="true" />

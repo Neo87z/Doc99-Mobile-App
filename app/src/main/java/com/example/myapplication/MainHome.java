@@ -24,7 +24,18 @@ public class MainHome extends AppCompatActivity {
         SessionMangement s1= new SessionMangement(getApplicationContext());
         Toast.makeText(this,s1.GetUserID(), Toast.LENGTH_SHORT).show();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout,new HomeFragment()).commit();
+        String Status= getIntent().getStringExtra("Status");
+        if(Status == null){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout,new HomeFragment()).commit();
+        }else{
+            if(Status.equals("Home")){
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout,new HomeFragment()).commit();
+            }else if(Status.equals("Profile")){
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout,new ProfileFragment()).commit();
+            }else if(Status.equals("Settings")){
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout,new SettingsFragment()).commit();
+            }
+        }
     }
     private  BottomNavigationView.OnNavigationItemSelectedListener navListner= new
             BottomNavigationView.OnNavigationItemSelectedListener() {

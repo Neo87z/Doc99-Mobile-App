@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,11 +11,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.example.myapplication.InitialUserManagement.MainActivity;
+
+
 public class HomeFragment extends Fragment {
 
 
@@ -32,7 +31,8 @@ public class HomeFragment extends Fragment {
         Medicine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(),"Image Clicked", Toast.LENGTH_SHORT).show();
+                Intent startIntent= new Intent(getContext(),RequestMedication.class);
+                startActivity(startIntent);
             }
         });
 

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +16,7 @@ import com.example.myapplication.InitialUserManagement.MainActivity;
 import com.example.myapplication.InitialUserManagement.VerifyPin;
 import com.example.myapplication.Models.User;
 import com.example.myapplication.SessionManagement.SessionMangement;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,6 +38,8 @@ public class UpdatePorfile extends AppCompatActivity {
         Email=findViewById(R.id.editTextTextPersonName7);
         SaveChanges=findViewById(R.id.button6);
         DeleteAccount=findViewById(R.id.button5);
+        BottomNavigationView btnNav=findViewById(R.id.BottomNavigationView);
+        btnNav.setOnNavigationItemSelectedListener(navListner);
         DeleteAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -109,6 +113,30 @@ public class UpdatePorfile extends AppCompatActivity {
         });
 
     }
+    private  BottomNavigationView.OnNavigationItemSelectedListener navListner= new
+            BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    switch (item.getItemId()){
+                        case R.id.item1:
+                            Intent startIntent= new Intent(getApplicationContext(),MainHome.class);
+                            startIntent.putExtra("Status", "Home");
+                            startActivity(startIntent);
+                            break;
+                        case  R.id.item2:
+                            Intent startIntent2= new Intent(getApplicationContext(),MainHome.class);
+                            startIntent2.putExtra("Status", "Profile");
+                            startActivity(startIntent2);
+                            break;
+                        case R.id.item3:
+                            Intent startIntent3= new Intent(getApplicationContext(),MainHome.class);
+                            startIntent3.putExtra("Status", "Settings");
+                            startActivity(startIntent3);
+                    }
+                    return true;
+                }
+            };
+
 
     public  void GetUserDetails(){
         SessionMangement s1= new SessionMangement(getApplicationContext());
