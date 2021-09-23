@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.myapplication.InitialUserManagement.Loginactiviyu;
+import com.example.myapplication.InitialUserManagement.MainActivity;
 import com.example.myapplication.InitialUserManagement.VerifyPin;
 import com.example.myapplication.Models.User;
 import com.example.myapplication.SessionManagement.SessionMangement;
@@ -34,6 +36,32 @@ public class UpdatePorfile extends AppCompatActivity {
         Email=findViewById(R.id.editTextTextPersonName7);
         SaveChanges=findViewById(R.id.button6);
         DeleteAccount=findViewById(R.id.button5);
+        DeleteAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SessionMangement s1= new SessionMangement(getApplicationContext());
+                DatabaseReference ReadRef= FirebaseDatabase.getInstance().getReference().child("User").child(s1.GetUserID());
+                ReadRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.hasChildren()){
+                            try{
+                                dataSnapshot.getRef().removeValue();
+                                Toast.makeText(getApplicationContext(),"User Deleted", Toast.LENGTH_SHORT).show();
+                                Intent i1 = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivity(i1);
+                            }catch (Exception e){
+                                Toast.makeText(getApplicationContext(),e.toString(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+            }
+        });
         GetUserDetails();
         SaveChanges.setOnClickListener(new View.OnClickListener() {
             @Override
