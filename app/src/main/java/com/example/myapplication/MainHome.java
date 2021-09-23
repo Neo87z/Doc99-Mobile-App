@@ -22,7 +22,6 @@ public class MainHome extends AppCompatActivity {
         BottomNavigationView btnNav=findViewById(R.id.BottomNavigationView);
         btnNav.setOnNavigationItemSelectedListener(navListner);
         SessionMangement s1= new SessionMangement(getApplicationContext());
-        Toast.makeText(this,s1.GetUserID(), Toast.LENGTH_SHORT).show();
 
         String Status= getIntent().getStringExtra("Status");
         if(Status == null){

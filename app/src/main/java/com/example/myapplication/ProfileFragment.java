@@ -47,7 +47,7 @@ public class ProfileFragment extends Fragment {
         UpdateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(),"Button Clicked", Toast.LENGTH_SHORT).show();
+
                 Intent startIntent= new Intent(getContext(), UpdatePorfile.class);
                 startActivity(startIntent);
             }
