@@ -98,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
                                 Intent startIntent= new Intent(MainActivity.this,MainHome.class);
 
                                 startActivity(startIntent);
+                                finish();
                             }else{
                                 Toast.makeText(MainActivity.this,"Invalid NIC Or Password", Toast.LENGTH_SHORT).show();
                             }
@@ -129,5 +130,6 @@ public class MainActivity extends AppCompatActivity {
     public void ForGotPassword(){
         Intent i1 = new Intent(this,ResetPassword.class);
         startActivity(i1);
+
     }
 }

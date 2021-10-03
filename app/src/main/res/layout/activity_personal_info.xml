@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InitialUserManagement.PersonalInfo">
+    tools:context=".InitialUserManagement.PersonalInfo"
+    android:background="@drawable/singup">
 
     <TextView
         android:id="@+id/textView14"
@@ -15,6 +16,7 @@
         android:text="Personal Infromation"
         android:textColor="#000000"
         android:textSize="32dp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -147,7 +149,7 @@
         android:layout_marginEnd="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo1" />
+        app:srcCompat="@drawable/ori" />
 
     <EditText
         android:id="@+id/editTextTextPersonName20"

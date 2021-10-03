@@ -55,6 +55,7 @@ public class Loginactiviyu extends AppCompatActivity {
                 startIntent.putExtra("Country", Country1);
                 startIntent.putExtra("Email", Email);
                 startActivity(startIntent);
+
             }
 
         }catch (Exception e){

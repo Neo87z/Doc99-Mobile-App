@@ -50,6 +50,7 @@ public class PersonalInfo extends AppCompatActivity {
     public void RegisterUser(){
         Intent i1= new Intent(this, MainActivity.class);
         startActivity(i1);
+        finish();
 
     }
     public void CheckTextFiels(){
