@@ -110,7 +110,7 @@ public class ReviewMedication extends AppCompatActivity {
             Med.setRequesterName(RquesterName.getText().toString());
             Med.setStatus("Pending");
             Med.setUSerID(s1.GetUserID());
-            dbref.child(s1.GetUserID()).setValue(Med);
+            dbref.push().setValue(Med);
             Toast.makeText(getApplicationContext(),"Request Submited Sucessfully", Toast.LENGTH_SHORT).show();
             Intent startIntent= new Intent(getApplicationContext(), MainHome.class);
             startActivity(startIntent);

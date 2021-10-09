@@ -87,34 +87,31 @@ public class MainActivity extends AppCompatActivity {
             readRef.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    try{
-                        if(dataSnapshot.hasChildren()){
-                            String Pass=dataSnapshot.child("password").getValue().toString();
-                            if(Pass.equals(Password.getText().toString())){
-                                SessionMangement sessionManagement= new SessionMangement(MainActivity.this);
-                                User s1= new User();
+                    try {
+                        if (dataSnapshot.hasChildren()) {
+                            String Pass = dataSnapshot.child("password").getValue().toString();
+                            if (Pass.equals(Password.getText().toString())) {
+                                SessionMangement sessionManagement = new SessionMangement(MainActivity.this);
+                                User s1 = new User();
                                 s1.setNIC(EmailPhone.getText().toString());
                                 sessionManagement.SaveSession(s1);
-                                Intent startIntent= new Intent(MainActivity.this,MainHome.class);
+                                Intent startIntent = new Intent(MainActivity.this, MainHome.class);
 
                                 startActivity(startIntent);
                                 finish();
-                            }else{
-                                Toast.makeText(MainActivity.this,"Invalid NIC Or Password", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(MainActivity.this, "Invalid NIC Or Password", Toast.LENGTH_SHORT).show();
                             }
 
-                        }else{
-                            Toast.makeText(MainActivity.this,"Invalid NIC Or Password", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(MainActivity.this, "Invalid NIC Or Password", Toast.LENGTH_SHORT).show();
                         }
 
-                    }catch (Exception e){
-                        Toast.makeText(MainActivity.this,e.toString(), Toast.LENGTH_SHORT).show();
+                    } catch (Exception e) {
+                        Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
 
                     }
-
-
                 }
-
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
 

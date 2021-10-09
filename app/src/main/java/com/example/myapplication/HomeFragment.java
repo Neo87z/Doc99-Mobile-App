@@ -21,7 +21,7 @@ public class HomeFragment extends Fragment {
         // Required empty public constructor
     }
 
-    ImageView Medicine,Covid;
+    ImageView Medicine,Covid,LabReport;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -29,6 +29,14 @@ public class HomeFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
         Medicine=(ImageView)v.findViewById(R.id.imageView16);
         Covid=(ImageView)v.findViewById(R.id.imageView14);
+        LabReport=(ImageView)v.findViewById(R.id.imageView17);
+        LabReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent startIntent= new Intent(getContext(),LabRepots.class);
+                startActivity(startIntent);
+            }
+        });
         Covid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

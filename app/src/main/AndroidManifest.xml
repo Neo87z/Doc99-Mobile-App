@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".LabRepots"
+            android:exported="true" />
+        <activity
             android:name=".InitialUserManagement.MainActivity"
             android:exported="true" />
         <activity
@@ -57,10 +60,11 @@
             android:name=".InitialUserManagement.Loginactiviyu"
             android:exported="true" />
         <activity
-            android:name="SplashScreen"
+            android:name=".SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
